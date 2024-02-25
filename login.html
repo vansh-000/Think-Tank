@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f27aa09dbd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="Title">Login</h1>
+            <form id="loginForm" action="javascript:void(0)" method="post">
+                <div class="input-group">
+                    <div class="input-field" id="usernameField">
+                        <i class="fa-solid fa-user-graduate"></i><input type="text" id="usernameInput" name="username"
+                            placeholder="Username or Email" required>
+                    </div>
+                    <div class="input-field" id="password">
+                        <i class="fa-solid fa-lock"></i><input type="password" id="passwordInput" name="password"
+                            placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="btn-field centre">
+                    <button type="button" id="loginBtn">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBcVskZdfsQUyRthxrn2smTdYIUeu28uGA",
+            authDomain: "login-data-d6abe.firebaseapp.com",
+            databaseURL: "https://login-data-d6abe-default-rtdb.firebaseio.com",
+            projectId: "login-data-d6abe",
+            storageBucket: "login-data-d6abe.appspot.com",
+            messagingSenderId: "629135711250",
+            appId: "1:629135711250:web:97bb224c102d7486810ccb",
+            measurementId: "G-3VGW1GCSXH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        // Get a reference to the database
+        const db = getDatabase(app);
+
+        // Function to check if username (or email) and password match
+        async function checkCredentials(username, password) {
+            const snapshot = await get(child(ref(db), 'user'));
+            if (snapshot.exists()) {
+                const users = snapshot.val();
+                for (const key in users) {
+                    if ((users[key].name === username || users[key].email === username) && users[key].password === password) {
+                        return true; // Match found
+                    }
+                }
+            }
+            return false; // No match found
+        }
+
+        // Function to handle login
+        async function loginUser(username, password) {
+            try {
+                const credentialsValid = await checkCredentials(username, password);
+                if (credentialsValid) {
+                    alert("Login Successful!");
+                    // Redirect to another page or perform other actions upon successful login
+                } else {
+                    alert("Invalid username (or email) or password.");
+                }
+            } catch (error) {
+                console.error("Error during login: ", error);
+                alert("An error occurred. Please try again later.");
+            }
+        }
+
+        // Login button click event handler
+        document.getElementById("loginBtn").addEventListener('click', function () {
+            const usernameInputValue = document.getElementById("usernameInput").value;
+            const passwordInputValue = document.getElementById("passwordInput").value;
+
+            if (!usernameInputValue || !passwordInputValue) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            loginUser(usernameInputValue, passwordInputValue);
+        });
+
+    </script>
+    <script src="index.js"></script>
+    <script>
+        let loginBtn = document.getElementById("loginBtn");
+        let usernameField = document.getElementById("usernameField");
+        let Title = document.getElementById("Title");
+
+        loginBtn.onclick = function () {
+            usernameField.style.maxHeight = "65px ";
+            Title.innerHTML = "Login";
+            loginBtn.classList.remove("disabled");
+        };
+    </script>
+</body>
+
+</html>
