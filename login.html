@@ -24,19 +24,20 @@
                             placeholder="Password" required>
                     </div>
                 </div>
+                <div><a href="#" id="forgotPassword">Forgot Password</a></div>
                 <div class="btn-field centre">
                     <button type="button" id="loginBtn">Login</button>
+                    
                 </div>
             </form>
         </div>
     </div>
     <script type="module">
 
-        // Import the functions you need from the SDKs you need
+ 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBcVskZdfsQUyRthxrn2smTdYIUeu28uGA",
             authDomain: "login-data-d6abe.firebaseapp.com",
@@ -48,33 +49,29 @@
             measurementId: "G-3VGW1GCSXH"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
 
-        // Get a reference to the database
         const db = getDatabase(app);
 
-        // Function to check if username (or email) and password match
         async function checkCredentials(username, password) {
             const snapshot = await get(child(ref(db), 'user'));
             if (snapshot.exists()) {
                 const users = snapshot.val();
                 for (const key in users) {
                     if ((users[key].name === username || users[key].email === username) && users[key].password === password) {
-                        return true; // Match found
+                        return true; 
                     }
                 }
             }
-            return false; // No match found
+            return false;
         }
 
-        // Function to handle login
         async function loginUser(username, password) {
             try {
                 const credentialsValid = await checkCredentials(username, password);
                 if (credentialsValid) {
                     alert("Login Successful!");
-                    // Redirect to another page or perform other actions upon successful login
+                   
                 } else {
                     alert("Invalid username (or email) or password.");
                 }
@@ -84,7 +81,6 @@
             }
         }
 
-        // Login button click event handler
         document.getElementById("loginBtn").addEventListener('click', function () {
             const usernameInputValue = document.getElementById("usernameInput").value;
             const passwordInputValue = document.getElementById("passwordInput").value;
@@ -95,6 +91,10 @@
             }
 
             loginUser(usernameInputValue, passwordInputValue);
+        });
+
+        document.getElementById("forgotPassword").addEventListener('click', function () {
+            alert("Redirecting to forgot password page..."); 
         });
 
     </script>

@@ -107,3 +107,8 @@ form p a{
     background: #eaeaea;
     color: #555;
 }
+#forgotPassword{
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}

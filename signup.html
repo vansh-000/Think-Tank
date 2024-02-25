@@ -38,11 +38,8 @@
     </div>
     <script type="module">
 
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBcVskZdfsQUyRthxrn2smTdYIUeu28uGA",
             authDomain: "login-data-d6abe.firebaseapp.com",
@@ -54,13 +51,10 @@
             measurementId: "G-3VGW1GCSXH"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
 
-        // Get a reference to the database
         const db = getDatabase(app);
 
-        // Function to check if email already exists in the database
         async function checkUserExists(name, email) {
             const snapshot = await get(child(ref(db), 'user'));
             if (snapshot.exists()) {
@@ -76,18 +70,17 @@
                     }
                 }
             }
-            return false; // User doesn't exist
+            return false; 
         }
 
-        // Function to sign up a new user
         async function signUpUser(name, email, password) {
             try {
                 const userExists = await checkUserExists(name, email);
                 if (userExists) {
-                    return; // Don't proceed if user already exists
+                    return; 
                 }
 
-                // Set user data in the database
+
                 await set(ref(db, 'user/' + name), {
                     name: name,
                     email: email,
@@ -100,13 +93,12 @@
             }
         }
 
-        // Sign up button click event handler
+
         document.getElementById("signupBtn").addEventListener('click', function () {
             const nameInputValue = document.getElementById("nameInput").value;
             const emailInputValue = document.getElementById("emailInput").value;
             const passwordInputValue = document.getElementById("passwordInput").value;
 
-            // Regular expression for email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!nameInputValue || !emailInputValue || !passwordInputValue) {
