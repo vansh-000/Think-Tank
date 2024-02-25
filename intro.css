@@ -7,7 +7,7 @@
 .container {
     height: 100vh;
     background-image: url(hackerimage.png);
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 54%;
@@ -20,15 +20,15 @@
 }
 
 nav {
-    height: 73px;
+    height: 5rem;
     background-image: linear-gradient(45deg, #30cfd0 0%, #782fd2d9 100%);
     z-index: -1;
 }
 
 li {
     float: right;
-    padding: 0px 10px;
-    padding-top: 19px;
+    padding: 0px 0.8rem;
+    padding-top: 1.3rem;
 }
 
 .mainstructure {
@@ -47,10 +47,10 @@ li {
 }
 
 h1 {
-    height: 100px;
+    height: 6rem;
 
     z-index: 0;
-    width: 200px;
+    width: 12.5rem;
 
 
 }
@@ -71,20 +71,23 @@ li {
 .element {
 
     border: 2px sollid black;
-    margin-top: 400px;
+    margin-top: 2rem;
+}
+span{
+    width: 10rem;
 }
 
 .writtingtext {
-    margin-top: 200px;
-    width: 100px;
-    margin-left: 50px;
+    margin-top: 13rem;
+    width: 10rem;
+    margin-left: 4rem;
 }
 .box1 {
    
-    width: 431px;
-    height: 394px;
+    width: 27rem;
+    height: 25rem;
     border: 2px solid white;
-    margin-top: 202px;
+    margin-top: 13rem;
     
     background: rgba(255, 255, 255, 0.25);
     border-radius: 16px;
@@ -97,10 +100,10 @@ li {
 }
 .box2 {
    
-    width: 431px;
-    height: 394px;
+    width: 27rem;
+    height: 25rem;
     border: 2px solid white;
-    margin-top: 202px;
+    margin-top: 13rem;
     
     background: rgba(255, 255, 255, 0.19);
     border-radius: 16px;
@@ -111,22 +114,7 @@ li {
     text-align: center;
     border: none;
 }
-.box1 {
-   
-    width: 431px;
-    height: 394px;
-    border: 2px solid white;
-    margin-top: 202px;
-    
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    text-align: center;
-    border: none;
-}
+
 .mainbox{
     display: flex;
     justify-content:space-around;
