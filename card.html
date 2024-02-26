@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Score</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .body {
+            background-image: linear-gradient(-45deg, #30cfd0 0%, #330867 100%);
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .score-card {
+            background: #fff;
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .score-card h2 {
+            font-size: 50px;
+            color: #001e4d;
+            font-weight: 600;
+            margin: 20px;
+        }
+        .score-card p {
+            font-size: 30px;
+            color: #001e4d;
+            margin-bottom: 10px;
+        }
+        .image{
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="score-card">
+            <h2>Congratulations!</h2>
+            <img src="trophy.avif" alt="Trophy" class="image">
+            <p><span>Your Quiz Score:</span>
+                <span id="score">--/--</span></p>
+            <p id="percentage">--%</p>
+            <p id="correct-answers">-- out of -- questions answered correctly</p>
+        </div>
+    </div>
+    <script>
+        const score = localStorage.getItem('quizScore');
+        const totalQuestions = 4;
+        const percentage = (score / totalQuestions) * 100;
+        document.getElementById('score').innerText = score + '/' + totalQuestions;
+        document.getElementById('percentage').innerText = percentage.toFixed(2) + '%';
+        document.getElementById('correct-answers').innerText = score + ' out of ' + totalQuestions + ' questions answered correctly.';
+    </script>
+</body>
+
+</html>

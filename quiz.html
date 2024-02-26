@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .body {
+            background-image: linear-gradient(-45deg, #30cfd0 0%, #330867 100%);
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .app {
+            background: #fff;
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto 0;
+            border-radius: 10px;
+            padding: 30px;
+            font-size: 18px;
+            line-height: 1.6;
+
+        }
+
+        .app h1 {
+            font-size: 26px;
+            color: #001e4d;
+            font-weight: 600;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+
+        }
+
+        .quiz {
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .quiz h2 {
+            font-size: 20px;
+            color: #001e4d;
+            font-weight: 600;
+        }
+
+        #question {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            font-size: 18px;
+
+            background: #fff;
+            color: #222;
+            font-weight: 500;
+            width: 100%;
+            border: 1px solid #222;
+            padding: 15px;
+
+            margin: 10px 0;
+            text-align: left;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #222;
+            color: #fff;
+        }
+
+        #next-btn {
+            font-size: 20px;
+            background: #001e4d;
+            color: #fff;
+            font-weight: 500;
+            width: 150px;
+            border: 0;
+            padding: 15px;
+            margin: 30px auto 0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="app">
+            <h1>Sample Quiz</h1>
+            <div class="quiz">
+                <h2 id="question">Question Here</h2>
+                <div id="answer-buttons">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+        const questions = [
+            {
+                question: "Which is the largest animal in the world?",
+                answers: [
+                    { text: "Shark", correct: false },
+                    { text: "Blue Whale", correct: true },
+                    { text: "Elephant", correct: false },
+                    { text: "Giraffe", correct: false }
+                ]
+            },
+            {
+                question: "Which is the largest continent in the world?",
+                answers: [
+                    { text: "Australia", correct: false },
+                    { text: "Europe", correct: false },
+                    { text: "Antarctica", correct: false },
+                    { text: "Asia", correct: true }
+                ]
+            },
+            {
+                question: "Which is the smallest continent in the world?",
+                answers: [
+                    { text: "Europe", correct: false },
+                    { text: "Asia", correct: false },
+                    { text: "Antarctica", correct: false },
+                    { text: "Australia", correct: true }
+                ]
+            },
+            {
+                question: "Which is the largest animal in the world?",
+                answers: [
+                    { text: "Shark", correct: false },
+                    { text: "Blue Whale", correct: true },
+                    { text: "Elephant", correct: false },
+                    { text: "Giraffe", correct: false }
+                ]
+            }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const answerButtons = document.getElementById("answer-buttons");
+        const nextButton = document.getElementById("next-btn");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            nextButton.innerHTML = "Next";
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = questions[currentQuestionIndex];
+            let questionNo = currentQuestionIndex + 1;
+            questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.innerHTML = answer.text;
+                button.classList.add("btn");
+                button.addEventListener("click", () => {
+                    if (answer.correct) {
+                        score++;
+                    }
+                    if (currentQuestionIndex < questions.length - 1) {
+                        currentQuestionIndex++;
+                        showQuestion();
+                    } else {
+                        endQuiz();
+                    }
+                });
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextButton.style.display = "none";
+            while (answerButtons.firstChild) {
+                answerButtons.removeChild(answerButtons.firstChild);
+            }
+        }
+
+        function endQuiz() {
+            localStorage.setItem('quizScore', score);
+            window.location.href = 'card.html';
+        }
+
+        startQuiz();
+    </script>
+</body>
+
+</html>
