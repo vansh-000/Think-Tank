@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <script src="https://kit.fontawesome.com/f27aa09dbd.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        background: linear-gradient(-45deg, #30cfd0 0%, #330867 100%);
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form-box {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 30rem;
+    }
+
+    #Title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin: 2rem;
+    }
+
+    .input-field {
+        position: relative;
+        margin-bottom: 1em;
+    }
+
+    .input-field input {
+        width: 100%;
+        padding: 0.8em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 0.9em;
+    }
+
+    .input-field input:focus {
+        border-color: #007bff;
+    }
+
+    .btn-field {
+        text-align: center;
+    }
+
+    button {
+        padding: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #001e4d;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="Title">Create Quiz</h1>
+            <form id="quiz-form" action="javascript:void(0)" method="post">
+                <div class="input-group">
+                    <div class="input-field" id="questionField">
+                        <input type="text" id="questionInput" name="question"
+                            placeholder="Question" required>
+                    </div>
+                    <div class="input-field" id="answer1Field">
+                        <input type="text" id="answer1Input" name="answer1"
+                            placeholder="Answer 1" required>
+                    </div>
+                    <div class="input-field" id="answer2Field">
+                        <input type="text" id="answer2Input" name="answer2"
+                            placeholder="Answer 2" required>
+                    </div>
+                    <div class="input-field" id="answer3Field">
+                        <input type="text" id="answer3Input" name="answer3"
+                            placeholder="Answer 3" required>
+                    </div>
+                    <div class="input-field" id="answer4Field">
+                        <input type="text" id="answer4Input" name="answer4"
+                            placeholder="Answer 4" required>
+                    </div>
+                </div>
+                <div class="btn-field center">
+                    <button type="submit" id="saveBtn">Save Quiz</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyBcVskZdfsQUyRthxrn2smTdYIUeu28uGA",
+            authDomain: "login-data-d6abe.firebaseapp.com",
+            databaseURL: "https://login-data-d6abe-default-rtdb.firebaseio.com",
+            projectId: "login-data-d6abe",
+            storageBucket: "login-data-d6abe.appspot.com",
+            messagingSenderId: "629135711250",
+            appId: "1:629135711250:web:97bb224c102d7486810ccb",
+            measurementId: "G-3VGW1GCSXH"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        document.getElementById('quiz-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            const questionInputValue = document.getElementById("questionInput").value;
+            const answer1InputValue = document.getElementById("answer1Input").value;
+            const answer2InputValue = document.getElementById("answer2Input").value;
+            const answer3InputValue = document.getElementById("answer3Input").value;
+            const answer4InputValue = document.getElementById("answer4Input").value;
+            if (!questionInputValue || !answer1InputValue || !answer2InputValue || !answer3InputValue || !answer4InputValue) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            addDoc(collection(db, "quizzes"), {
+                question: questionInputValue,
+                answers: [
+                    { text: answer1InputValue, correct: true },
+                    { text: answer2InputValue, correct: false },
+                    { text: answer3InputValue, correct: false },
+                    { text: answer4InputValue, correct: false }
+                ]
+            }).then(() => {
+                alert("Quiz saved successfully!");
+            }).catch((error) => {
+                console.error("Error saving quiz: ", error);
+                alert("An error occurred while saving the quiz. Please try again later.");
+            });
+        });
+
+    </script>
+</body>
+</html>
