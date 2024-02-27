@@ -6,109 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hackathon </title>
     <link rel="stylesheet" href="intro.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="1.0000.png">
 </head>
 
 <body>
     <nav>
         <ul>
             <li class="active">
-                <button><a href="signup.html">Sign Up</a></button>
+                <a href="signup.html">Sign Up</a>
             </li>
             <li>
-                <button>About US</button>
-            </li>
-            <li>
-                <button>Contact</button>
+                About Us
             </li>
             <li class="active">
-                <button><a href="makequiz.html">Design a Quiz</a></button>
+                <a href="makequiz.html">Design a Quiz</a>
             </li>
             <li class="active">
-                <button><a href="quiz.html">Attempt a Quiz</a></button>
+                <a href="quiz.html">Attempt a Quiz</a>
             </li>
             <li>
-                <button>Instructions</button>
+                <a href="#instructions">Instructions</a>
             </li>
             
         </ul>
         <div class="logo"><img src="1.0.png" alt="logo" class="logo_image">
-            <h3 class="logocaption text-white font-sans text-large"></h3>
+            <h3 class="logocaption">ThinkTank<sup>&#169;</sup></h3>
         </div>
     </nav>
     <div class="mainstructure">
-        <div class="container">
+        <div class="container ">
             <div class="writtingtext">
-                <div class="element text-white font-extrabold ml-10 p-0 text-5xl "></div>
+                <div class="element"></div>
             </div>
         </div>
         <div class="container2 ">
-            <div class="writingtext2  text-black font-extrabold ml-10 p-0 text-5xl ">
+            <div class="writingtext2">
                 <div class="element2"></div>
             </div>
-            <div class="mainbox">
+        </div>
+        <div class="mainbox" id="instructions" >
+            <video autoplay loop muted>
+                <source src="hi.mp4" type="video/mp4">
+            </video>
+            <div class="boxes">
+                <!-- have to give the box shadow to the box while hovering -->
+                <div class="box1">
+                    <div class="insheading">Getting Started :</div>
+                    <div class="boxcontent"> This is a quiz game where you can test your knowledge on
+                        variours <br>
+                        To get started, simply click on the "Start Quiz" button given below</div>
 
+                </div>
+                <div class="box2">
+                    <div class="insheading">Choosing a Quiz:</div>
 
-                <video autoplay loop muted>
-                    <source src="pexels_videos_2802271 (1080p).mp4" type="video/mp4">
+                    <div class="boxcontent "> Once you've clicked on the "Play Now" button, you'll be
+                        taken to the quiz selection screen. <br>
+                        Choose a quiz category that interests you. We have a wide range of topics available, including
+                        geography, history, science, movies, and more.</div>
+                </div>
+                <div class="box3">
+                    <div class="insheading">Answering Questions :</div>
 
-                </video>
-                <div class="boxes">
-                    <!-- have to give the box shadow to the box while hovering -->
-                    <div class="box1">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quibusdam in odit magni cum
-                        aut distinctio quidem explicabo, reprehenderit quaerat voluptas nihil harum esse deleniti natus
-                        a praesentium aperiam atque doloribus iusto, vel consequatur!
+                    <div class="boxcontent"> Once you've selected a quiz, you'll start answering
+                        questions.
+                        Read each question carefully, and select the answer you think is correct. <br>
+                        You may have a time limit for each question, so try to answer quickly but accurately.</div>
+                </div>
+                <div class="box4">
+                    <div class="insheading">Scoring:</div>
 
+                    <div class="boxcontent"> You'll earn points for each correct answer.
+
+                        Some quizzes may have bonus points or multipliers for certain questions or difficulty levels.
                     </div>
-                    <div class="box2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore laboriosam aperiam est autem
-                        praesentium vitae, voluptatem dolor vel voluptas porro at corrupti deserunt in nam nihil
-                        voluptatum id. Dicta inventore blanditiis commodi quasi dolorem.
-                    </div>
-                    <div class="box3">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse iure ipsa praesentium
-                        labore, pariatur asperiores doloribus corporis numquam ullam. Molestiae ab a quisquam numquam
-                        ipsam eveniet itaque, cupiditate accusantium.
-                    </div>
-                    <div class="box4">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut incidunt nisi aperiam nam,
-                        obcaecati ab reiciendis rerum accusantium velit? Unde eaque rerum ea atque deserunt excepturi
-                        eos fugiat! Repudiandae vel harum cum facilis quas.
-                    </div>
-                    <div class="box5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores illum laboriosam rem
-                        perspiciatis accusamus, libero reiciendis temporibus iste iusto asperiores! Ullam vel, nemo sint
-                        voluptatum libero repellendus necessitatibus debitis! Reiciendis quasi reprehenderit velit
-                        excepturi?
+                </div>
+                <div class="box5">
+                    <div class="insheading">Leaderboard :</div>
+
+                    <div class="boxcontent ">
+                        After completing the quiz, you'll see your score and how it compares to other players on the
+                        leaderboard. <br>
+                        Compete with friends or other players to see who can achieve the highest score!
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
+    </div>
     <div class="container3">
-        <div class="gamestart">
-            <div class="menu"></div>
-            <div class="startbutton"><Button>Start</Button></div>
+
+        <div class="menu">
+            <img src="1.0.png" alt="">
+        </div>
+        <div class="buuttons">
+            <div class="startbutton"><Button><a href="#">Start</a></Button>
+
+            </div>
+            <div class="createquize"><button><a href="http://127.0.0.1:5501/vansh.html">Create A Quiz</a></button></div>
         </div>
     </div>
     <div class="container4">
         <div class="photos">
             <div class="photo1container">
                 <div class="photo1">
-                    <img src="vanshphoto.jpg" alt="" class="vansh">
+
                 </div>
-                <div class="vanshinfo text-xl text-black font-bold font-mono">
+                <div class="vanshinfo ">
                     Name : Vansh Verma
                 </div>
             </div>
             <div class="photo2container">
                 <div class="photo2">
-                    <img src="" alt="" class="pranav">
+
                 </div>
-                <div class="pranavinfo text-xl text-black font-bold font-mono">
+                <div class="pranavinfo ">
                     Name : Pranav Shrivastava
                 </div>
             </div>

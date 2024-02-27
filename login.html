@@ -27,7 +27,7 @@
                 <div><a href="password.html" id="forgotPassword">Forgot Password</a></div>
                 <div class="btn-field centre">
                     <button type="button" id="loginBtn">Login</button>
-                    
+
                 </div>
             </form>
         </div>
@@ -67,19 +67,19 @@
         }
 
         async function loginUser(username, password) {
-            try {
-                const credentialsValid = await checkCredentials(username, password);
-                if (credentialsValid) {
-                    alert("Login Successful!");
-                   
-                } else {
-                    alert("Invalid username (or email) or password.");
-                }
-            } catch (error) {
-                console.error("Error during login: ", error);
-                alert("An error occurred. Please try again later.");
-            }
+    try {
+        const credentialsValid = await checkCredentials(username, password);
+        if (credentialsValid) {
+            alert("Login Successful!");
+            window.location.href = "index.html"; 
+        } else {
+            alert("Invalid username (or email) or password.");
         }
+    } catch (error) {
+        console.error("Error during login: ", error);
+        alert("An error occurred. Please try again later.");
+    }
+}
 
         document.getElementById("loginBtn").addEventListener('click', function () {
             const usernameInputValue = document.getElementById("usernameInput").value;
