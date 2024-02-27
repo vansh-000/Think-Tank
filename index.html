@@ -11,12 +11,17 @@
 
 <body>
     <nav>
+        <div class="logo"><img src="1.0.png" alt="logo" class="logo_image">
+            <h3 class="logocaption">ThinkTank<sup>&#169;</sup></h3>
+        </div>
+        <div class="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
         <ul>
-            <li class="active">
-                <a href="signup.html">Sign Up</a>
-            </li>
             <li>
-                About Us
+                <a href="#aboutus">About Us</a>
             </li>
             <li class="active">
                 <a href="makequiz.html">Design a Quiz</a>
@@ -27,11 +32,11 @@
             <li>
                 <a href="#instructions">Instructions</a>
             </li>
-            
+            <li class="active">
+                <a href="signup.html">Sign Up</a>
+            </li>
         </ul>
-        <div class="logo"><img src="1.0.png" alt="logo" class="logo_image">
-            <h3 class="logocaption">ThinkTank<sup>&#169;</sup></h3>
-        </div>
+    </nav>
     </nav>
     <div class="mainstructure">
         <div class="container ">
@@ -44,16 +49,20 @@
                 <div class="element2"></div>
             </div>
         </div>
-        <div class="mainbox" id="instructions" >
+        <div class="mainbox">
             <video autoplay loop muted>
                 <source src="hi.mp4" type="video/mp4">
+
             </video>
             <div class="boxes">
                 <!-- have to give the box shadow to the box while hovering -->
                 <div class="box1">
                     <div class="insheading">Getting Started :</div>
+
                     <div class="boxcontent"> This is a quiz game where you can test your knowledge on
                         variours <br>
+
+
                         To get started, simply click on the "Start Quiz" button given below</div>
 
                 </div>
@@ -88,12 +97,15 @@
                         After completing the quiz, you'll see your score and how it compares to other players on the
                         leaderboard. <br>
                         Compete with friends or other players to see who can achieve the highest score!
+
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     </div>
+    <div class="spacefill"></div>
     <div class="container3">
 
         <div class="menu">
@@ -107,14 +119,23 @@
         </div>
     </div>
     <div class="container4">
+        <div class="writing4">Page Created By : </div>
         <div class="photos">
+
             <div class="photo1container">
+
                 <div class="photo1">
 
                 </div>
                 <div class="vanshinfo ">
                     Name : Vansh Verma
+                    <div class="socialmediaicon">
+                        <a href=""><img src="instagram.png" alt="" class="instagramvansh"></a>
+                        <a href=""><img src="icons8-linkedin-48.png" alt="" class="linkedvansh"></a>
+                        <a href=""><img src="icons8-github-60.png" alt="" class="gitvansh"></a>
+                    </div>
                 </div>
+
             </div>
             <div class="photo2container">
                 <div class="photo2">
@@ -122,12 +143,52 @@
                 </div>
                 <div class="pranavinfo ">
                     Name : Pranav Shrivastava
+                    <div class="socialmediaicon2">
+                        <a href=""><img src="instagram.png" alt="" class="instagrampranav"></a>
+                        <a href=""><img src="icons8-linkedin-48.png" alt="" class="linkedpranav"></a>
+                        <a href=""><img src="icons8-github-60.png" alt="" class="gitpranav"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <footer>
+        <div class="down_class">
+            <div class="left">
+                <b>Info <br><br> About <br><br>Contact <br><br>Terms & Services<br><br> Location & Hours <br>
+                </b>
+                <!-- <li>Info</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Terms & Services</li>
+            <li>Location & Hours</li> -->
+            </div>
+            <div class="left2">
+                <b>Order<br><br> Catering <br><br> Delivery <br><br> FAQ</b>
+            </div>
+            <div class="brandname">ThinkTank<sup>&#169;</sup></div>
+            <div class="right">
+                <br>
+                <div class="socialmedia"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
+                        alt="" width="30px">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAjVBMVEX///8IZv8AYf9pl/8AV//09/8AXv8AY/+mvP88fP/7/v8Aav9yoP8AW/8AXf8AWf/g6v/K2f/a5v/L3f+Jr/8ldP+pw/+ErP/Q4P+zyv9/qP/o8f/W4P/q8/9Nhf85ef8gcP9IgP9Xjf+bt/9akv+/0/9PiP+kwP+/1f+xy/+RtP94o/9fj/8Ybf9qm/9hqLssAAADpElEQVR4nO3c/1PaMBjHcYiQCDXpFyxS2UBWoTqG//+fN+XmeW69maQNz5Pe5/2jHl5el5JyaXA0QgghhBBCCCGEEEIIIYQQQgghhBBCCKFLNl1nRfEtP1cU2Xo6px5Rb31fVLcvm+1DoqRO9bnUqPFDuftxc1vlxZR6gJ3K68dESCOFUmr8udefiNdfGalOm+NyFeGMzrP6oFMpxl/2SjVpOltSj9itrJ5Z6T6SL9Rjdml/EPLvq/KrxA31qO2rSu00e7EJ92XqOn1RCYuD9vJFI6zdVpfohOud9vXFIczH3hMYh3DpfIOITNikXXwRCK87AtkLm0lHIHdhLrsCmQuzcadFJgLhrsttIgbhXYcbfRTCVR9A1sI+rlHWwmUvU8hYOC+7r6O8hT1NIWNh0s8U8hVWPU0hX+GspylkK1yZnoBshcde7oWMhX3dKvgKF32tM2yF971dpFyFW7+LVAlpdPqR1tpMWD6ZWXtszggzUZtj/fy0KLJzq9Xqaf/c1BW1pq2l671CmeSqWlMP26EXt7ehMrsqsme9J6e3oSz31AN2ber0NkxZLiX/z+luaCJ7Tn/OZaHRMQJd7vfmnnqwXh2shWpGPVa/7D92ywX1WL2aJrZA8Ug9Vr8y6yk0OfVY/SpsHzipknqonuW2t0N5Rz1Uz6y32dI415nRqLG9SifUI/Xtp6VQbalH6tudpZDp/oRFtjuJsqYeqW83lkL9TD1S32yF0S6loytbYUE9Ut9shZOYtp4+ZS2M9hsVtkI9eKGEkG0QQsg/CCHkH4QQ8s9ayP+5b3PdVrOz3PNWdevrP0f78E0Z2Zb9c5mvS69IhdZPYPyT10MX6qehCw3tehteqMqhC8UvUuAlhMTP38ILNfFpqfBCSbxpHF54+j5wIflxm+BCQX2oL7jQNIMXUp+3CS6UxAvNBdZSYmBwoTgMXShvhy6kP8oQWjjJhi4ck2/GBRaqDTUwtFAcqYGhhZL6M1twIYMzU6FXGurPbKGFaku+lAYWcviqQlgh/We20ELqfbbwQsHgcGZYYUK/0IySt3/l/G/WhtZXvyeo99ne2s1aO9kC21/+py2HL9TMW3M4Qdv+B97/Dt9wRhhC/kEIIf8ghJB/EELIPwgh5B+EEPIPQgj5ByGE/IMQQv5BCCH/IISQfxBCyD8IIeQfhBDyD0II+QchhPyDEEL+QQgh/yCEkH8QQsg/CCHkH4QQ8g9CCPkHIYT8gxBC/kF4SeFvjSdQECUnB9MAAAAASUVORK5CYII="
+                        alt="" width="30px">
+                    <img src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg" alt=""
+                        width="38px">
+                    <img src="https://static-00.iconduck.com/assets.00/pinterest-icon-2048x2048-d7p0u7c5.png" alt=""
+                        width="30px">
+                </div><br>
 
+                <div class="emailinput"><label for="email"></label>
+                    <input type="email" name="email" id="email" placeholder="Your E-mail" class="emailinput1">
+
+                    <h5>Sign Up for news & updates !!</h5>
+
+                </div>
+            </div>
+        </div>
+        <div class="brandsocialmedia"></div>
     </footer>
 </body>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
@@ -144,6 +205,20 @@
         loop: true
 
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('nav ul');
+
+        menuIcon.addEventListener('click', function () {
+            navMenu.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+
+            // Toggle flex direction between row and column
+            document.querySelector('nav ul').classList.toggle('vertical');
+        });
+    });
+
+
 </script>
 
 </body>

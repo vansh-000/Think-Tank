@@ -3,8 +3,6 @@
     padding: 0;
     scrollbar-width: none;
     font-family: sans-serif;
-
-
 }
 
 .container {
@@ -23,22 +21,71 @@
 
     @media (min-width: 640px) {
         .container {
-            max-width: 640px
+            max-width: 640px;
         }
     }
 
     @media (min-width: 768px) {
         .container {
-            max-width: 768px
+            max-width: 768px;
         }
     }
-
 }
 
 nav {
     height: 4.7rem;
     background-image: linear-gradient(-45deg, #30cfd0 0%, #782fd2d9 100%);
     z-index: -1;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+}
+
+.menu-icon .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-icon.open .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-icon.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+nav ul {
+    display: none;
+    position: absolute;
+    top: 4.7rem;
+    right: 0;
+    background-color: #30cfd0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 998;
+}
+
+nav ul.open {
+    display: block;
+}
+
+nav ul li {
+    display: block;
+    padding: 1rem 0;
 }
 
 li {
@@ -58,12 +105,11 @@ li {
     background-attachment: fixed;
     background-size: 54%;
     z-index: -1;
-    background-image: linear-gradient(45degdeg, #116c91 0%, #330867 100%);
+    background-image: linear-gradient(45deg, #116c91 0%, #330867 100%);
 }
 
 h1 {
     height: 6rem;
-
     z-index: 0;
     width: 12.5rem;
 }
@@ -73,7 +119,7 @@ h1 {
     transform: rotateY(20deg);
 }
 
-li {
+nav ul li {
     display: inline-block;
     color: white;
     font-weight: 900;
@@ -106,7 +152,7 @@ span {
 
 .box1 {
     margin-left: 3rem;
-    width: 23rem;
+    width: 25rem;
     height: 25rem;
     border: 2px solid white;
     margin-top: 13rem;
@@ -121,11 +167,12 @@ span {
     text-align: center;
     border: none;
     scroll-snap-align: end;
+    padding: 1rem;
 
 }
 
 .box2 {
-    width: 23rem;
+    width: 25rem;
     height: 25rem;
     border: 2px solid white;
     margin-top: 13rem;
@@ -140,11 +187,13 @@ span {
     text-align: center;
     border: none;
     scroll-snap-align: end;
+    padding: 1rem;
+
 }
 
 .box3 {
 
-    width: 23rem;
+    width: 25rem;
     height: 25rem;
     border: 2px solid white;
     margin-top: 13rem;
@@ -159,10 +208,13 @@ span {
     text-align: center;
     border: none;
     scroll-snap-align: end;
+    padding: 1rem;
+
 }
 
 .box4 {
-    width: 23rem;
+
+    width: 25rem;
     height: 25rem;
     border: 2px solid white;
     margin-top: 13rem;
@@ -177,10 +229,12 @@ span {
     text-align: center;
     border: none;
     scroll-snap-align: end;
+    padding: 1rem;
+
 }
 
 .box5 {
-    width: 23rem;
+    width: 25em;
     height: 25rem;
     border: 2px solid white;
     margin-top: 13rem;
@@ -195,6 +249,9 @@ span {
     text-align: center;
     border: none;
     scroll-snap-align: end;
+    padding: 1rem;
+
+
 }
 
 box2:hover {
@@ -220,9 +277,11 @@ box2:hover {
     height: 100%;
     object-fit: cover;
     overflow-y: hidden;
+    visibility: hidden;
+
 }
 
-li:hover {
+nav ul li:hover {
     text-decoration-line: underline;
     text-decoration-color: #330867;
     text-decoration-style: solid;
@@ -343,16 +402,26 @@ li:hover {
     border: 1rem solid white;
     justify-self: center;
 
+
 }
 
 .photo1container {
     width: 23rem;
-    height: 25rem;
+    height: 30rem;
     border-radius: 1.4rem;
     background-color: white;
     display: grid;
     grid-template-rows: 77% 30%;
     row-gap: 2px;
+    margin: 10em 10em;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 16px;
+    box-shadow: 0 9px 70px rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border: none;
 }
 
 .vanshinfo {
@@ -360,17 +429,27 @@ li:hover {
     font-weight: 700;
     color: black;
     font-family: monospace;
-    font-size: 25px;
+    font-size: 20px;
+
 }
 
 .photo2container {
     width: 23rem;
-    height: 25rem;
+    height: 30rem;
     border-radius: 1.4rem;
     background-color: white;
     display: grid;
     grid-template-rows: 77% 30%;
     row-gap: 2px;
+    margin: 10em 10em;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 16px;
+    box-shadow: 0 9px 70px rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border: none;
 }
 
 .pranavinfo {
@@ -378,7 +457,8 @@ li:hover {
     font-weight: 700;
     color: black;
     font-family: monospace;
-    font-size: 25px;
+    font-size: 20px;
+
 }
 
 .container3 {
@@ -454,4 +534,167 @@ a {
     gap: 19rem;
 }
 
-.menu img {}
+.menu img {
+    border: none;
+    filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+    border-radius: 1rem;
+}
+
+footer {
+    height: 20rem;
+    background: #2196f3;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(45deg, #f44336, #2196f3);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(45deg, #f44336, #2196f3);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.socialmediaicon {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 0rem;
+    column-gap: 13px;
+
+
+}
+
+.socialmediaicon2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 3rem;
+    column-gap: 20px;
+
+
+}
+
+.socialmediaicon img {
+    border-radius: 5px;
+}
+
+.socialmediaicon2 img {
+    border-radius: 5px;
+}
+
+.instagramvansh {
+    padding: 0px 10px;
+    padding-top: 10px;
+    transform: scale(1.4);
+}
+
+.gitvansh {
+    transform: scale(0.8);
+    margin-top: -1.6px;
+}
+
+.instagrampranav {
+    padding-top: 10px;
+    transform: scale(1.4);
+}
+
+.gitpranav {
+    transform: scale(0.8);
+    margin-top: -1.6px;
+}
+
+.brandname {
+    padding-top: 1rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.down_class {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.home {
+    display: inline-block;
+    color: white;
+
+}
+
+.dropdownonline {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+}
+
+.orderonline {
+    display: inline-block;
+    color: white;
+
+}
+
+.orderonline :hover .dropdownonline {
+    display: block;
+    color: white;
+
+
+}
+
+.left {
+    color: white;
+    margin-left: 10px;
+    padding-top: 30px;
+    font-size: larger;
+    font-weight: 600;
+
+
+}
+
+.left2 {
+    font-size: larger;
+    padding-top: 30px;
+    font-weight: 600;
+
+
+
+
+}
+
+.right {
+    font-weight: 600;
+    gap: 10px;
+}
+
+.emailinput h5 {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+
+.emailinput {
+    font-weight: 600;
+
+
+}
+
+.emailinput1 {
+    border-radius: 10px;
+    height: 2.5rem;
+    padding-right: 5px;
+    text-align: center;
+
+}
+
+.socialmedia img {
+    border-radius: 5px;
+
+}
+
+.writing4 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
+    color: white;
+}
