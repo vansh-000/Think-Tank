@@ -21,16 +21,16 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: none;
 
-    @media (min-width: 640px) {
-        .container {
-            max-width: 640px;
-        }
+}
+@media (max-width: 640px) {
+    .container {
+        max-width: 640px;
     }
+}
 
-    @media (min-width: 768px) {
-        .container {
-            max-width: 768px;
-        }
+@media (max-width: 768px) {
+    .container {
+        max-width: 768px;
     }
 }
 
@@ -383,31 +383,49 @@ nav ul li:hover {
 
 .photos {
     display: flex;
-    justify-content: space-between; /* Ensures photos are spaced between */
-    padding: 0 20px; /* Add padding to the sides */
-}
-
-.profile {
-    text-align: center;
-    flex: 1; /* Distribute available space equally */
-    margin: 0 10px; /* Add margin between profiles */
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem; 
+    max-width: 100vw;
 }
 
 .photo-container {
-    width: 160px; /* Increase width of photo container */
-    height: 160px; /* Increase height of photo container */
+    width: 160px; 
+    height: 160px; 
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid white;
     margin-bottom: 1rem;
+    margin-right: 1rem;
 }
 
-.photo1, .photo2 {
-    width: 100%; /* Ensure photos take up full width of container */
-    height: 100%; /* Ensure photos take up full height of container */
-    background-color: gray; /* Placeholder color for photo */
+.photo1,
+.photo2 {
+    width: 100%; 
+    height: 100%; 
+    background-color: gray; 
     background-size: cover;
     background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    .photos {
+        padding: 0;
+    }
+
+    .photo-container {
+        width: 120px; 
+        height: 120px; 
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .photo-container {
+        width: 100px;
+        height: 100px; 
+        margin-right: 0.5rem; 
+    }
 }
 
 .info {
@@ -434,7 +452,10 @@ nav ul li:hover {
     height: 32px;
 }
 
-
+.flex{
+    padding: 2.5rem;
+    max-width: 100vw;
+}
 
 @media screen and (max-width: 768px) {
     .photos {
