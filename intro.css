@@ -371,7 +371,9 @@ nav ul li:hover {
     background: linear-gradient(45deg, #116c91 0%, #330867 100%);
     height: 100%;
 }
-
+.flex{
+    display: flex;
+}
 .writing4 {
     display: flex;
     justify-content: center;
@@ -381,50 +383,57 @@ nav ul li:hover {
 
 .photos {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures photos are spaced between */
+    padding: 0 20px; /* Add padding to the sides */
 }
 
-.photo1container,
-.photo2container {
-    width: 19rem;
-    height: 28rem;
-    border-radius: 50%;
-    background-color: white;
-    display: grid;
-    grid-template-rows: auto 30%;
-    row-gap: 2px;
-    margin: 1em;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0);
-    border-radius: 16px;
-    box-shadow: 0 9px 70px rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    border: none;
+.profile {
+    text-align: center;
+    flex: 1; /* Distribute available space equally */
+    margin: 0 10px; /* Add margin between profiles */
 }
 
-.photo1,
-.photo2 {
-    width: 100%;
-    height: auto;
+.photo-container {
+    width: 160px; /* Increase width of photo container */
+    height: 160px; /* Increase height of photo container */
     border-radius: 50%;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1rem solid white;
+    border: 4px solid white;
+    margin-bottom: 1rem;
 }
 
-.vanshinfo,
-.pranavinfo {
-    padding: 1rem;
-    font-weight: 700;
-    color: black;
-    font-family: monospace;
-    font-size: 20px;
+.photo1, .photo2 {
+    width: 100%; /* Ensure photos take up full width of container */
+    height: 100%; /* Ensure photos take up full height of container */
+    background-color: gray; /* Placeholder color for photo */
+    background-size: cover;
+    background-position: center;
 }
+
+.info {
+    font-family: Arial, sans-serif;
+}
+
+.name {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-icons a {
+    margin: 0 0.5rem;
+}
+
+.social-media-icons img {
+    width: 32px;
+    height: 32px;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -487,8 +496,6 @@ nav ul li:hover {
     font-family: sans-serif;
     font-size: 1.875rem;
     padding-bottom: 10px;
-
-
 }
 
 .boxcontent {
@@ -545,6 +552,10 @@ new css for footer
 
     .emailinput {
         display: none;
+    }
+    .flex{
+        justify-content: center;
+        align-items: center;
     }
 }
 
