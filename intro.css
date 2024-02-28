@@ -3,8 +3,7 @@
     padding: 0;
     scrollbar-width: none;
     font-family: sans-serif;
-
-
+    box-sizing: border-box;
 }
 
 .container {
@@ -23,13 +22,13 @@
 
     @media (min-width: 640px) {
         .container {
-            max-width: 640px
+            max-width: 100%
         }
     }
 
     @media (min-width: 768px) {
         .container {
-            max-width: 768px
+            max-width: 100%
         }
     }
 
@@ -320,101 +319,79 @@ nav ul li:hover {
 
 }
 
+
+/* new css for photos */
+
+
 .container4 {
-    padding: 2rem 0rem;
+    padding: 2rem auto;
     background: linear-gradient(45deg, #116c91 0%, #330867 100%);
     height: 100%;
+}
+
+.writing4{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 900
 }
 
 .photos {
     display: flex;
     justify-content: space-evenly;
-
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
 }
 
-.photo1 {
+.photo1container, .photo2container {
     width: 19rem;
-    height: 19rem;
+    height: 28rem;
+    border-radius: 50%;
+    background-color: white;
+    display: grid;
+    grid-template-rows: auto 30%; /* Adjust row sizes */
+    row-gap: 2px;
+    margin: 1em; /* Adjust margin for spacing between items */
+    z-index: 1;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 16px;
+    box-shadow: 0 9px 70px rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border: none;
+}
+
+.photo1, .photo2 {
+    width: 100%; /* Adjust image width to fit container */
+    height: auto; /* Allow height to adjust based on content */
     border-radius: 50%;
     overflow: hidden;
-    background-image: url(vanshphoto.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border: 1rem solid white;
-    grid-row: 1 / 2;
-    justify-self: center;
 }
 
-.photo2 {
-    width: 19rem;
-    height: 19rem;
-    border-radius: 50%;
-    overflow: hidden;
-    background-image: url(pranavphoto.jpg);
-    background-size: cover;
-    background-position: left;
-    background-repeat: no-repeat;
-    border: 1rem solid white;
-    justify-self: center;
-
-
-}
-
-.photo1container {
-    width: 23rem;
-    height: 30rem;
-    border-radius: 1.4rem;
-    background-color: white;
-    display: grid;
-    grid-template-rows: 77% 30%;
-    row-gap: 2px;
-    margin: 10em 10em;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0);
-    border-radius: 16px;
-    box-shadow: 0 9px 70px rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    border: none;
-}
-
-.vanshinfo {
-    padding-left: 3rem;
+.vanshinfo, .pranavinfo {
+    padding: 1rem; /* Adjust padding for content spacing */
     font-weight: 700;
     color: black;
     font-family: monospace;
     font-size: 20px;
-
 }
 
-.photo2container {
-    width: 23rem;
-    height: 30rem;
-    border-radius: 1.4rem;
-    background-color: white;
-    display: grid;
-    grid-template-rows: 77% 30%;
-    row-gap: 2px;
-    margin: 10em 10em;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0);
-    border-radius: 16px;
-    box-shadow: 0 9px 70px rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    border: none;
-}
+/* Additional CSS for responsiveness if needed */
+@media screen and (max-width: 768px) {
+    .photos {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center items horizontally */
+    }
 
-.pranavinfo {
-    padding-left: 2.5rem;
-    font-weight: 700;
-    color: black;
-    font-family: monospace;
-    font-size: 20px;
-
+    .photo1container, .photo2container {
+        width: 90%; /* Adjust container width for smaller screens */
+        max-width: none; /* Remove maximum width restriction */
+        margin: 1em auto; /* Center containers horizontally */
+    }
 }
 
 .container3 {
@@ -496,65 +473,47 @@ a {
     border-radius: 1rem;
 }
 
+
+/* 
+new css for footer  
+*/
+
+
+@media screen and (max-width: 650px) {
+    .down_class {
+        flex-direction: column;
+        align-items: center; 
+    }
+    .left {
+        margin-left: 0; 
+        text-align: center; 
+        padding-top: 20px; 
+    }
+    .right {
+        margin-top: 20px; 
+        text-align: center;
+    }
+    .emailinput {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    footer {
+        width: 100vw;
+    }
+    .down_class {
+        padding: 0 20px; 
+    }
+}
+
 footer {
     height: 20rem;
+    width: 100%;
     background: #2196f3;
-    /* fallback for old browsers */
     background: -webkit-linear-gradient(45deg, #f44336, #2196f3);
-    /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(45deg, #f44336, #2196f3);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-}
-
-.socialmediaicon {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    padding-left: 0rem;
-    column-gap: 13px;
-
-
-}
-
-.socialmediaicon2 {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    padding-left: 3rem;
-    column-gap: 20px;
-
-
-}
-
-.socialmediaicon img {
-    border-radius: 5px;
-}
-
-.socialmediaicon2 img {
-    border-radius: 5px;
-}
-
-.instagramvansh {
-    padding: 0px 10px;
-    padding-top: 10px;
-    transform: scale(1.4);
-}
-
-.gitvansh {
-    transform: scale(0.8);
-    margin-top: -1.6px;
-}
-
-.instagrampranav {
-    padding-top: 10px;
-    transform: scale(1.4);
-}
-
-.gitpranav {
-    transform: scale(0.8);
-    margin-top: -1.6px;
 }
 
 .brandname {
@@ -568,33 +527,8 @@ footer {
 .down_class {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: white;
-}
-
-.home {
-    display: inline-block;
-    color: white;
-
-}
-
-.dropdownonline {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-
-}
-
-.orderonline {
-    display: inline-block;
-    color: white;
-
-}
-
-.orderonline :hover .dropdownonline {
-    display: block;
-    color: white;
-
-
 }
 
 .left {
@@ -603,36 +537,18 @@ footer {
     padding-top: 30px;
     font-size: larger;
     font-weight: 600;
-
-
-}
-
-.left2 {
-    font-size: larger;
-    padding-top: 30px;
-    font-weight: 600;
-
-
-
-
 }
 
 .right {
     font-weight: 600;
+    display: flex;
+    align-items: center;
     gap: 10px;
 }
 
 .emailinput h5 {
     font-weight: 600;
-    margin-top: 10px;
     margin-right: 10px;
-
-}
-
-.emailinput {
-    font-weight: 600;
-
-
 }
 
 .emailinput1 {
@@ -640,17 +556,8 @@ footer {
     height: 2.5rem;
     padding-right: 5px;
     text-align: center;
-
 }
 
 .socialmedia img {
     border-radius: 5px;
-
-}
-
-.writing4 {
-    text-align: center;
-    font-weight: 900;
-    font-size: 2rem;
-    color: white;
 }
