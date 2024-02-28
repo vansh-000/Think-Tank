@@ -393,18 +393,23 @@ nav ul li:hover {
     width: 160px; 
     height: 160px; 
     border-radius: 50%;
-    overflow: hidden;
+    overflow: hidden; 
     border: 4px solid white;
     margin-bottom: 1rem;
     margin-right: 1rem;
 }
 
+.myimg{
+   height: 167px;
+   width: 167px;
+}
+
 .photo1,
 .photo2 {
-    width: 100%; 
-    height: 100%; 
+    width: 160px; 
+    height: 160px; 
     background-color: gray; 
-    background-size: cover;
+    background-size:contain;
     background-position: center;
 }
 
@@ -588,6 +593,10 @@ new css for footer
 
     .down_class {
         padding: 0 20px;
+    }
+    .flex{
+        justify-content: center;
+        align-items: center;
     }
 }
 
