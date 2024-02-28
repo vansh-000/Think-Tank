@@ -502,7 +502,7 @@ new css for footer
 @media screen and (max-width: 450px) {
     footer {
         width: 100vw;
-        height: 35rem
+        height: 40rem;
     }
     .down_class {
         padding: 0 20px; 
