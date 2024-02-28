@@ -3,17 +3,18 @@
     padding: 0;
     scrollbar-width: none;
     font-family: sans-serif;
-    box-sizing: border-box;
 }
 
 .container {
+    display: flex;
+    justify-content: left;
     height: 100vh;
     width: 100vw;
     background-image: url(hackerimage.png);
     background-position: right;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 54%;
+    background-size: 50%;
     z-index: -1;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(9.4px);
@@ -22,24 +23,71 @@
 
     @media (min-width: 640px) {
         .container {
-            max-width: 100%
+            max-width: 640px;
         }
     }
 
     @media (min-width: 768px) {
         .container {
-            max-width: 100%
+            max-width: 768px;
         }
     }
-
 }
-
-
 
 nav {
     height: 4.7rem;
     background-image: linear-gradient(-45deg, #30cfd0 0%, #782fd2d9 100%);
     z-index: -1;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+}
+
+.menu-icon .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-icon.open .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-icon.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+nav ul {
+    display: none;
+    position: absolute;
+    top: 4.7rem;
+    right: 0;
+    background-color: #30cfd0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 998;
+}
+
+nav ul.open {
+    display: block;
+}
+
+nav ul li {
+    display: block;
+    padding: 1rem 1.1rem;
 }
 
 li {
@@ -64,7 +112,6 @@ li {
 
 h1 {
     height: 6rem;
-
     z-index: 0;
     width: 12.5rem;
 }
@@ -97,18 +144,18 @@ span {
 }
 
 .writtingtext {
-    height: 20rem;
+    height: 17rem;
     margin-top: 10rem;
     width: 28rem;
     margin-left: 10rem;
-    position: absolute;
+    position: relative;
 
 }
 
-.box1 {
+#box1 {
     margin-left: 3rem;
-    width: 25rem;
-    height: 25rem;
+    width: 20em;
+    height: 20em;
     border: 2px solid white;
     margin-top: 13rem;
     position: relative;
@@ -126,9 +173,9 @@ span {
 
 }
 
-.box2 {
-    width: 25rem;
-    height: 25rem;
+#box2 {
+    width: 20em;
+    height: 20em;
     border: 2px solid white;
     margin-top: 13rem;
     position: relative;
@@ -146,10 +193,10 @@ span {
 
 }
 
-.box3 {
+#box3 {
 
-    width: 25rem;
-    height: 25rem;
+    width: 20em;
+    height: 20em;
     border: 2px solid white;
     margin-top: 13rem;
     position: relative;
@@ -167,10 +214,10 @@ span {
 
 }
 
-.box4 {
+#box4 {
 
-    width: 25rem;
-    height: 25rem;
+    width: 20em;
+    height: 20em;
     border: 2px solid white;
     margin-top: 13rem;
     position: relative;
@@ -188,9 +235,9 @@ span {
 
 }
 
-.box5 {
-    width: 25em;
-    height: 25rem;
+#box5 {
+    width: 20em;
+    height: 20em;
     border: 2px solid white;
     margin-top: 13rem;
     position: relative;
@@ -272,35 +319,35 @@ nav ul li:hover {
     perspective: 1000px;
 }
 
-.box:hover {
+#box:hover {
     scrollbar-width: none;
 }
 
-.box1:hover {
+#box1:hover {
     transition: all 0.4s ease-out;
     transform: rotateY(10deg) scale(1.2);
 
 }
 
-.box2:hover {
+#box2:hover {
     transition: all 0.4s ease-out;
     transform: rotateY(10deg) scale(1.2);
 
 }
 
-.box3:hover {
+#box3:hover {
     transition: all 0.4s ease-out;
     transform: scale(1.2);
 
 }
 
-.box4:hover {
+#box4:hover {
     transition: all 0.4s ease-out;
     transform: rotateY(-10deg) scale(1.2);
 
 }
 
-.box5:hover {
+#box5:hover {
     transition: all 0.4s ease-out;
     transform: rotateY(-10deg) scale(1.2);
 
@@ -319,17 +366,13 @@ nav ul li:hover {
 
 }
 
-
-/* new css for photos */
-
-
 .container4 {
     padding: 2rem auto;
     background: linear-gradient(45deg, #116c91 0%, #330867 100%);
     height: 100%;
 }
 
-.writing4{
+.writing4 {
     display: flex;
     justify-content: center;
     color: white;
@@ -339,10 +382,11 @@ nav ul li:hover {
 .photos {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
-.photo1container, .photo2container {
+.photo1container,
+.photo2container {
     width: 19rem;
     height: 28rem;
     border-radius: 50%;
@@ -361,9 +405,10 @@ nav ul li:hover {
     border: none;
 }
 
-.photo1, .photo2 {
-    width: 100%; 
-    height: auto; 
+.photo1,
+.photo2 {
+    width: 100%;
+    height: auto;
     border-radius: 50%;
     overflow: hidden;
     background-size: cover;
@@ -372,8 +417,9 @@ nav ul li:hover {
     border: 1rem solid white;
 }
 
-.vanshinfo, .pranavinfo {
-    padding: 1rem; 
+.vanshinfo,
+.pranavinfo {
+    padding: 1rem;
     font-weight: 700;
     color: black;
     font-family: monospace;
@@ -384,13 +430,14 @@ nav ul li:hover {
 @media screen and (max-width: 768px) {
     .photos {
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
     }
 
-    .photo1container, .photo2container {
-        width: 90%; 
-        max-width: none; 
-        margin: 1em auto; 
+    .photo1container,
+    .photo2container {
+        width: 90%;
+        max-width: none;
+        margin: 1em auto;
     }
 }
 
@@ -405,9 +452,9 @@ nav ul li:hover {
 }
 
 .startbutton button {
-    height: 5rem;
-    width: 10em;
-    background-color: orangered;
+    height: 4rem;
+    width: 10rem;
+    background-color: rgb(51, 51, 50);
     text-align: center;
     border-radius: 1rem;
     font-size: larger;
@@ -417,9 +464,9 @@ nav ul li:hover {
 }
 
 .createquize button {
-    height: 5rem;
-    width: 15rem;
-    background-color: orangered;
+    height: 4rem;
+    width: 11rem;
+    background-color: rgb(51, 51, 50);
     text-align: center;
     border-radius: 1rem;
     font-size: larger;
@@ -482,17 +529,20 @@ new css for footer
 @media screen and (max-width: 650px) {
     .down_class {
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
     }
+
     .left {
-        margin-left: 0; 
-        text-align: center; 
-        padding-top: 20px; 
+        margin-left: 0;
+        text-align: center;
+        padding-top: 20px;
     }
+
     .right {
-        margin-top: 20px; 
+        margin-top: 20px;
         text-align: center;
     }
+
     .emailinput {
         display: none;
     }
@@ -503,17 +553,16 @@ new css for footer
     footer {
         width: 100vw;
     }
+
     .down_class {
-        padding: 0 20px; 
+        padding: 0 20px;
     }
 }
 
 footer {
     height: 30rem;
     width: 100%;
-    background: #2196f3;
-    background: -webkit-linear-gradient(45deg, #f44336, #2196f3);
-    background: linear-gradient(45deg, #f44336, #2196f3);
+    background-image: linear-gradient(-45deg, #30cfd0 0%, #782fd2d9 100%);
 }
 
 .brandname {
@@ -560,4 +609,727 @@ footer {
 
 .socialmedia img {
     border-radius: 5px;
+}
+
+.writing4 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.menu-icon.open {
+    transition: all 0.8 ease-out;
+}
+
+.writingtext3 {
+    background-color: black;
+    text-align: center;
+    height: 5rem;
+    line-height: 5rem;
+    padding-top: 1rem;
+    color: rgba(0, 0, 0, 0.514);
+    font-weight: 800;
+    padding: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.writingtext2 {
+    background-color: black;
+    line-height: auto;
+}
+
+@media (min-width: 200px) {
+    .mainbox video {
+        max-width: 100%;
+    }
+    .logo {
+        min-width: 641px;
+    }
+    .logocaption {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+    }
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        margin-left: 10rem;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 25%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 4em;
+    }
+
+    .box:hover {
+        transform: rotateY(0deg);
+        transform: rotateX(0deg);
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 6rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 17rem;
+
+    }
+
+    .startbutton button {
+        width: 5rem;
+    }
+
+    .createquize button {
+        width: 6rem;
+    }
+
+    .photo1 {
+        width: 7rem;
+        height: 7rem;
+
+    }
+
+    .photo1container {
+        height: 12rem;
+        row-gap: 0px;
+    }
+
+    .photo2container {
+        width: 3rem;
+        height: 12rem;
+    }
+
+    .socialmediaicon2 {
+        padding-top: 2px;
+        column-gap: 6px;
+    }
+
+    .photo2 {
+        width: 7rem;
+        height: 7rem;
+
+    }
+
+}
+
+@media (min-width: 400px) {
+    .mainbox video {
+        max-width: 100%;
+    }
+
+    .logo {
+        min-width: 641px;
+    }
+
+    .logocaption {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+
+
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        margin-left: 10rem;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 25%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 5em;
+    }
+
+    .box:hover {
+        transform: rotateY(0deg);
+        transform: rotateX(0deg);
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 7rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 17rem;
+
+    }
+
+    .startbutton button {
+        width: 6rem;
+    }
+
+    .createquize button {
+        width: 7rem;
+    }
+
+    .photo1 {
+        width: 9rem;
+        height: 9rem;
+    }
+
+    .photo1container {
+        width: 0rem;
+        height: 16rem;
+        row-gap: 3px;
+    }
+
+    .photo2 {
+        width: 9rem;
+        height: 9rem;
+    }
+
+    .photo2container {
+        width: 6rem;
+        height: 16rem;
+    }
+
+}
+
+@media (min-width: 640px) {
+    .mainbox video {
+        max-width: 100%;
+    }
+
+    .logo {
+        min-width: 641px;
+    }
+
+    .logocaption {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+
+
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        margin-left: 10rem;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 25%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 7em;
+    }
+
+    .box:hover {
+        transform: rotateY(0deg);
+        transform: rotateX(0deg);
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 17rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 22rem;
+
+    }
+
+    .startbutton button {
+        width: 9rem;
+    }
+
+    .createquize button {
+        width: 11rem;
+    }
+
+    .photo1 {
+        width: 13rem;
+        height: 13rem;
+    }
+
+    .photo2 {
+        width: 13rem;
+        height: 13rem;
+    }
+
+    .photo1container {
+        width: 10rem;
+        height: 22rem;
+    }
+
+    .vanshinfo {
+        padding-left: 2rem;
+    }
+
+    .socialmediaicon {
+        column-gap: 5px;
+    }
+
+    .photo2 {
+        width: 13rem;
+        height: 13rem;
+    }
+
+    .photo2container {
+        width: 10rem;
+        height: 22rem;
+        margin: 10em 10em;
+    }
+
+    .pranavinfo {
+        padding-left: 0.5rem;
+    }
+
+    .socialmediaicon2 {
+        padding-top: 8px;
+        padding-left: 0.5rem;
+        column-gap: 5px;
+    }
+
+
+}
+
+
+
+
+@media (min-width: 768px) {
+    .mainbox video {
+        max-width: 100%;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+
+        padding-bottom: 10px;
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        margin-left: 10rem;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+    }
+
+
+    .logo {
+        min-width: 769px;
+    }
+
+    .logocaption {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+
+
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        margin-left: 10rem;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 31%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 9em;
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 21rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 23rem;
+
+    }
+
+    .startbutton button {
+        width: 10rem;
+    }
+
+    .createquize button {
+        width: 12rem;
+    }
+
+    .photo1 {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .photo1container {
+        height: 26rem;
+        width: 17rem;
+        margin: 10em 3em;
+
+    }
+
+    .photo2container {
+        height: 26rem;
+        width: 16rem;
+    }
+
+    .photo2 {
+        width: 16rem;
+        height: 16rem;
+    }
+}
+
+
+
+
+@media (min-width: 1024px) {
+    .mainbox video {
+        max-width: 100%;
+    }
+
+    .logo {
+        min-width: 1025px;
+    }
+
+    .logocaption {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+
+
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 31%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 12em;
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 21rem;
+
+    }
+
+    .startbutton button {
+        width: 10rem;
+    }
+
+    .createquize button {
+        width: 11rem;
+    }
+
+    .photo1container {
+        margin: 10em 8em;
+    }
+
+    .photo2container {
+        margin: 10em 6em;
+    }
+
+}
+
+@media (min-width: 1280px) {
+    .mainbox video {
+        max-width: 100%;
+    }
+    .logo {
+        min-width: 1281px;
+    }
+
+    .logocaption {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 22rem;
+        margin-left: 8rem;
+
+    }
+    .element {
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 1rem;
+        padding: 0;
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 25%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 15em;
+        transform: scale(1);
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 22rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 23rem;
+
+    }
+
+    .startbutton button {
+        width: 11rem;
+    }
+
+    .createquize button {
+        width: 12rem;
+    }
+
+}
+
+@media (min-width: 1536px) {
+    .mainbox video {
+        max-width: 100%;
+    }
+
+    .logo {
+        min-width: 100%;
+    }
+
+    .logocaption {
+        font-size: 1.875rem;
+        font-weight: 800;
+        color: white;
+        font-family: sans-serif;
+
+        padding-bottom: 10px;
+    }
+
+    .writtingtext {
+        height: 17rem;
+        margin-top: 10rem;
+        width: 28rem;
+        margin-left: 10%;
+        position: relative;
+    }
+
+    .element {
+
+        border: 2px sollid black;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 800;
+        margin-left: 2.5rem;
+        padding: 0;
+
+    }
+
+    .boxes {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 31%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        perspective: 1000px;
+        position: absolute;
+    }
+
+    .box {
+        width: 20em;
+
+
+    }
+
+    .box:hover {
+        transform: scale(1.2);
+    }
+
+    .buuttons {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 19rem;
+    }
+
+    .menu img {
+        border: none;
+        filter: drop-shadow(7px 39px 27px rgba(0, 0, 0, 0.7));
+        border-radius: 1rem;
+        width: 26rem;
+
+    }
+
+    .startbutton button {
+        width: 10rem;
+    }
+
+    .createquize button {
+        width: 11rem;
+    }
+
+
+
+
+
+
 }

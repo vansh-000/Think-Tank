@@ -11,10 +11,15 @@
 
 <body>
     <nav>
+        <div class="logo"><img src="1.0.png" alt="logo" class="logo_image">
+            <h3 class="logocaption">ThinkTank<sup>&#169;</sup></h3>
+        </div>
+        <div class="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
         <ul>
-            <li class="active">
-                <a href="signup.html">Sign Up</a>
-            </li>
             <li>
                 <a href="#aboutus">About Us</a>
             </li>
@@ -27,10 +32,10 @@
             <li>
                 <a href="#instructions">Instructions</a>
             </li>
+            <li class="active">
+                <a href="signup.html">Sign Up</a>
+            </li>
         </ul>
-        <div class="logo"><img src="1.0.png" alt="logo" class="logo_image">
-            <h3 class="logocaption">ThinkTank<sup>&#169;</sup></h3>
-        </div>
     </nav>
     <div class="mainstructure">
         <div class="container ">
@@ -50,7 +55,7 @@
             </video>
             <div class="boxes" id="instructions">
                 <!--   have to give the box shadow to the box while hovering -->
-                <div class="box1">
+                <div class ="box" id="box1">
                     <div class="insheading">Getting Started :</div>
 
                     <div class="boxcontent"> This is a quiz game where you can test your knowledge on
@@ -58,7 +63,7 @@
                         To get started, simply click on the "Start Quiz" button given below</div>
 
                 </div>
-                <div class="box2">
+                <div class ="box" id="box2">
                     <div class="insheading">Choosing a Quiz:</div>
 
                     <div class="boxcontent "> Once you've clicked on the "Play Now" button, you'll be
@@ -66,7 +71,7 @@
                         Choose a quiz category that interests you. We have a wide range of topics available, including
                         geography, history, science, movies, and more.</div>
                 </div>
-                <div class="box3">
+                <div class ="box" id="box3">
                     <div class="insheading">Answering Questions :</div>
 
                     <div class="boxcontent"> Once you've selected a quiz, you'll start answering
@@ -74,7 +79,7 @@
                         Read each question carefully, and select the answer you think is correct. <br>
                         You may have a time limit for each question, so try to answer quickly but accurately.</div>
                 </div>
-                <div class="box4">
+                <div class ="box" id="box4">
                     <div class="insheading">Scoring:</div>
 
                     <div class="boxcontent"> You'll earn points for each correct answer.
@@ -82,7 +87,7 @@
                         Some quizzes may have bonus points or multipliers for certain questions or difficulty levels.
                     </div>
                 </div>
-                <div class="box5">
+                <div class ="box" id="box5">
                     <div class="insheading">Leaderboard :</div>
 
                     <div class="boxcontent ">
@@ -186,6 +191,18 @@
         typeSpeed: 20,
         loop: true
 
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('nav ul');
+
+        menuIcon.addEventListener('click', function () {
+            navMenu.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+
+            // Toggle flex direction between row and column
+            document.querySelector('nav ul').classList.toggle('vertical');
+        });
     });
 </script>
 </html>
