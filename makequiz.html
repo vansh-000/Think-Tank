@@ -125,7 +125,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         document.getElementById('quiz-form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault();
             const questionInputValue = document.getElementById("questionInput").value;
             const answer1InputValue = document.getElementById("answer1Input").value;
             const answer2InputValue = document.getElementById("answer2Input").value;

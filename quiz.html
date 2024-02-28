@@ -115,95 +115,255 @@
 
 
         const questions = [
-            {
-                question: "Which is the largest animal in the world?",
-                answers: [
-                    { text: "Shark", correct: false },
-                    { text: "Blue Whale", correct: true },
-                    { text: "Elephant", correct: false },
-                    { text: "Giraffe", correct: false }
-                ]
-            },
-            {
-                question: "Which is the largest continent in the world?",
-                answers: [
-                    { text: "Australia", correct: false },
-                    { text: "Europe", correct: false },
-                    { text: "Antarctica", correct: false },
-                    { text: "Asia", correct: true }
-                ]
-            },
-            {
-                question: "Which is the smallest continent in the world?",
-                answers: [
-                    { text: "Europe", correct: false },
-                    { text: "Asia", correct: false },
-                    { text: "Antarctica", correct: false },
-                    { text: "Australia", correct: true }
-                ]
-            },
-            {
-                question: "Which is the largest animal in the world?",
-                answers: [
-                    { text: "Shark", correct: false },
-                    { text: "Blue Whale", correct: true },
-                    { text: "Elephant", correct: false },
-                    { text: "Giraffe", correct: false }
-                ]
-            }
-        ];
-
-        const questionElement = document.getElementById("question");
-        const answerButtons = document.getElementById("answer-buttons");
-        const nextButton = document.getElementById("next-btn");
-
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        function startQuiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            nextButton.innerHTML = "Next";
-            showQuestion();
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "answers": [
+                { "text": "Earth", "correct": false },
+                { "text": "Mars", "correct": true },
+                { "text": "Venus", "correct": false },
+                { "text": "Jupiter", "correct": false }
+            ]
+        },
+        {
+            "question": "Who wrote the famous play 'Romeo and Juliet'?",
+            "answers": [
+                { "text": "William Shakespeare", "correct": true },
+                { "text": "Jane Austen", "correct": false },
+                { "text": "Charles Dickens", "correct": false },
+                { "text": "Mark Twain", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the capital city of France?",
+            "answers": [
+                { "text": "London", "correct": false },
+                { "text": "Rome", "correct": false },
+                { "text": "Paris", "correct": true },
+                { "text": "Berlin", "correct": false }
+            ]
+        },
+        {
+            "question": "Who is known as the 'Father of Computers'?",
+            "answers": [
+                { "text": "Albert Einstein", "correct": false },
+                { "text": "Thomas Edison", "correct": false },
+                { "text": "Charles Babbage", "correct": true },
+                { "text": "Isaac Newton", "correct": false }
+            ]
+        },
+        {
+            "question": "Which gas is most abundant in the Earth's atmosphere?",
+            "answers": [
+                { "text": "Oxygen", "correct": false },
+                { "text": "Nitrogen", "correct": true },
+                { "text": "Carbon Dioxide", "correct": false },
+                { "text": "Argon", "correct": false }
+            ]
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "answers": [
+                { "text": "Leonardo da Vinci", "correct": true },
+                { "text": "Vincent van Gogh", "correct": false },
+                { "text": "Pablo Picasso", "correct": false },
+                { "text": "Michelangelo", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the chemical symbol for water?",
+            "answers": [
+                { "text": "H2O", "correct": true },
+                { "text": "CO2", "correct": false },
+                { "text": "NaCl", "correct": false },
+                { "text": "O2", "correct": false }
+            ]
+        },
+        {
+            "question": "Which country is known as the Land of the Rising Sun?",
+            "answers": [
+                { "text": "China", "correct": false },
+                { "text": "India", "correct": false },
+                { "text": "Japan", "correct": true },
+                { "text": "Australia", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the largest mammal on Earth?",
+            "answers": [
+                { "text": "African Elephant", "correct": false },
+                { "text": "Blue Whale", "correct": true },
+                { "text": "Giraffe", "correct": false },
+                { "text": "Polar Bear", "correct": false }
+            ]
+        },
+        {
+            "question": "Who was the first man to step on the Moon?",
+            "answers": [
+                { "text": "Buzz Aldrin", "correct": false },
+                { "text": "Neil Armstrong", "correct": true },
+                { "text": "Yuri Gagarin", "correct": false },
+                { "text": "Michael Collins", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the largest organ in the human body?",
+            "answers": [
+                { "text": "Heart", "correct": false },
+                { "text": "Liver", "correct": false },
+                { "text": "Skin", "correct": true },
+                { "text": "Brain", "correct": false }
+            ]
+        },
+        {
+            "question": "Who discovered penicillin?",
+            "answers": [
+                { "text": "Alexander Fleming", "correct": true },
+                { "text": "Marie Curie", "correct": false },
+                { "text": "Louis Pasteur", "correct": false },
+                { "text": "Gregor Mendel", "correct": false }
+            ]
+        },
+        {
+            "question": "Which country is known as the 'Land of the Midnight Sun'?",
+            "answers": [
+                { "text": "Norway", "correct": true },
+                { "text": "Sweden", "correct": false },
+                { "text": "Finland", "correct": false },
+                { "text": "Canada", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "answers": [
+                { "text": "Au", "correct": true },
+                { "text": "Ag", "correct": false },
+                { "text": "Fe", "correct": false },
+                { "text": "Hg", "correct": false }
+            ]
+        },
+        {
+            "question": "Who invented the telephone?",
+            "answers": [
+                { "text": "Thomas Edison", "correct": false },
+                { "text": "Alexander Graham Bell", "correct": true },
+                { "text": "Nikola Tesla", "correct": false },
+                { "text": "Albert Einstein", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the capital of Canada?",
+            "answers": [
+                { "text": "Vancouver", "correct": false },
+                { "text": "Ottawa", "correct": true },
+                { "text": "Toronto", "correct": false },
+                { "text": "Montreal", "correct": false }
+            ]
+        },
+        {
+            "question": "Who wrote the novel 'To Kill a Mockingbird'?",
+            "answers": [
+                { "text": "Harper Lee", "correct": true },
+                { "text": "J.K. Rowling", "correct": false },
+                { "text": "Stephen King", "correct": false },
+                { "text": "Ernest Hemingway", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the currency of Japan?",
+            "answers": [
+                { "text": "Yuan", "correct": false },
+                { "text": "Yen", "correct": true },
+                { "text": "Won", "correct": false },
+                { "text": "Euro", "correct": false }
+            ]
+        },
+        {
+            "question": "Who is known as the 'Father of Geometry'?",
+            "answers": [
+                { "text": "Euclid", "correct": true },
+                { "text": "Pythagoras", "correct": false },
+                { "text": "Archimedes", "correct": false },
+                { "text": "Aristotle", "correct": false }
+            ]
+        },
+        {
+            "question": "What is the chemical symbol for silver?",
+            "answers": [
+                { "text": "Ag", "correct": true },
+                { "text": "Au", "correct": false },
+                { "text": "Si", "correct": false },
+                { "text": "Sr", "correct": false }
+            ]
         }
+    ]
+    ;
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    
 
-        function showQuestion() {
-            resetState();
-            let currentQuestion = questions[currentQuestionIndex];
-            let questionNo = currentQuestionIndex + 1;
-            questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
-            currentQuestion.answers.forEach(answer => {
-                const button = document.createElement("button");
-                button.innerHTML = answer.text;
-                button.classList.add("btn");
-                button.addEventListener("click", () => {
-                    if (answer.correct) {
-                        score++;
-                    }
-                    if (currentQuestionIndex < questions.length - 1) {
-                        currentQuestionIndex++;
-                        showQuestion();
-                    } else {
-                        endQuiz();
-                    }
-                });
-                answerButtons.appendChild(button);
+    function getRandomQuestions() {
+        const shuffledQuestions = shuffle(questions);
+        return shuffledQuestions.slice(0, 5); 
+    }
+    
+    const randomQuestions = getRandomQuestions();
+    
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-btn");
+    
+    let currentQuestionIndex = 0;
+    let score = 0;
+    
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        nextButton.innerHTML = "Next";
+        showQuestion();
+    }
+    
+    function showQuestion() {
+        resetState();
+        let currentQuestion = randomQuestions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+        questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            button.addEventListener("click", () => {
+                if (answer.correct) {
+                    score++;
+                }
+                if (currentQuestionIndex < randomQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion();
+                } else {
+                    endQuiz();
+                }
             });
+            answerButtons.appendChild(button);
+        });
+    }
+    
+    function resetState() {
+        nextButton.style.display = "none";
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
         }
-
-        function resetState() {
-            nextButton.style.display = "none";
-            while (answerButtons.firstChild) {
-                answerButtons.removeChild(answerButtons.firstChild);
-            }
-        }
-
-        function endQuiz() {
-            localStorage.setItem('quizScore', score);
-            window.location.href = 'card.html';
-        }
-
-        startQuiz();
+    }
+    
+    function endQuiz() {
+        localStorage.setItem('quizScore', score);
+        window.location.href = 'card.html';
+    }
+    
+    startQuiz();
     </script>
 </body>
 

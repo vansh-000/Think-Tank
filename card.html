@@ -60,7 +60,7 @@
     </div>
     <script>
         const score = localStorage.getItem('quizScore');
-        const totalQuestions = 4;
+        const totalQuestions = 5;
         const percentage = (score / totalQuestions) * 100;
         document.getElementById('score').innerText = score + '/' + totalQuestions;
         document.getElementById('percentage').innerText = percentage.toFixed(2) + '%';

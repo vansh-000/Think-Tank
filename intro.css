@@ -339,7 +339,7 @@ nav ul li:hover {
 .photos {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    flex-wrap: wrap; 
 }
 
 .photo1container, .photo2container {
@@ -348,9 +348,9 @@ nav ul li:hover {
     border-radius: 50%;
     background-color: white;
     display: grid;
-    grid-template-rows: auto 30%; /* Adjust row sizes */
+    grid-template-rows: auto 30%;
     row-gap: 2px;
-    margin: 1em; /* Adjust margin for spacing between items */
+    margin: 1em;
     z-index: 1;
     background: rgba(0, 0, 0, 0);
     border-radius: 16px;
@@ -362,8 +362,8 @@ nav ul li:hover {
 }
 
 .photo1, .photo2 {
-    width: 100%; /* Adjust image width to fit container */
-    height: auto; /* Allow height to adjust based on content */
+    width: 100%; 
+    height: auto; 
     border-radius: 50%;
     overflow: hidden;
     background-size: cover;
@@ -373,24 +373,24 @@ nav ul li:hover {
 }
 
 .vanshinfo, .pranavinfo {
-    padding: 1rem; /* Adjust padding for content spacing */
+    padding: 1rem; 
     font-weight: 700;
     color: black;
     font-family: monospace;
     font-size: 20px;
 }
 
-/* Additional CSS for responsiveness if needed */
+
 @media screen and (max-width: 768px) {
     .photos {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: center; /* Center items horizontally */
+        flex-direction: column;
+        align-items: center; 
     }
 
     .photo1container, .photo2container {
-        width: 90%; /* Adjust container width for smaller screens */
-        max-width: none; /* Remove maximum width restriction */
-        margin: 1em auto; /* Center containers horizontally */
+        width: 90%; 
+        max-width: none; 
+        margin: 1em auto; 
     }
 }
 

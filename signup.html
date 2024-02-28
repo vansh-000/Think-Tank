@@ -50,11 +50,8 @@
             appId: "1:629135711250:web:97bb224c102d7486810ccb",
             measurementId: "G-3VGW1GCSXH"
         };
-
         const app = initializeApp(firebaseConfig);
-
         const db = getDatabase(app);
-
         async function checkUserExists(name, email) {
             const snapshot = await get(child(ref(db), 'user'));
             if (snapshot.exists()) {
@@ -72,15 +69,12 @@
             }
             return false; 
         }
-
         async function signUpUser(name, email, password) {
             try {
                 const userExists = await checkUserExists(name, email);
                 if (userExists) {
                     return; 
                 }
-
-
                 await set(ref(db, 'user/' + name), {
                     name: name,
                     email: email,
@@ -92,8 +86,6 @@
                 alert("An error occurred. Please try again later.");
             }
         }
-
-
         document.getElementById("signupBtn").addEventListener('click', function () {
             const nameInputValue = document.getElementById("nameInput").value;
             const emailInputValue = document.getElementById("emailInput").value;
