@@ -502,6 +502,7 @@ new css for footer
 @media screen and (max-width: 450px) {
     footer {
         width: 100vw;
+        height: 35rem
     }
     .down_class {
         padding: 0 20px; 
@@ -509,7 +510,7 @@ new css for footer
 }
 
 footer {
-    height: 30rem;
+    height: 20rem;
     width: 100%;
     background: #2196f3;
     background: -webkit-linear-gradient(45deg, #f44336, #2196f3);
